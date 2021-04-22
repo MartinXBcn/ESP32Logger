@@ -105,3 +105,37 @@ Example output:
 00000004120 DBG functionA: This is an advanced debug-message with text Test and number 123.
 00000004130 ERR functionB: This is an error message; error-code: 123.
 ```
+
+## DBGCHK: Conditional logging
+
+With DBGCHK it is possible to trigger during run time of the program depending on a condition the logging of the message.
+The message will only be logged if the condition is *not* fulfilled.
+
+This can be usefull for example in case of
+* checking the parameters of a function in the beginning of the function
+* checking the return value of a function before ending a function
+* checking the return value of a called function.
+Example code:
+```C++
+char* functionZ(uint32_t input) {
+  char* cptr = nullptr;
+  // functionZ can only handle input > 0
+  DBGCHK(Error, input > 0, "functionZ cannot handle input < 1; input: %u.", input)
+  // Do something with input and return cptr; ensure that cptr is not null.
+  DBGCHK(Error, cptr != nullptr, "Invalid null-pointer to be returned")
+  return cptr;
+}
+```
+
+## DBGCOD: Include temporary debugging-code
+
+With DBGCOD temporary program code can be included only for the purpose of debugging. Usefull in combination with DBGCHK to check more complex situations. The code defined with DBGCOD (as all the other logging-code) will only be included in case ESP32DEBUGGING is defined.
+Example code:
+```C++
+DBGCOD(unsigned long time1;)
+DBGCOD(unsigned long time2;)
+DBGCOD(time1 = millis();)
+// Do something
+DBGCOD(time2 = millis();)
+DBGCHK(Info, time2-time1 < 100, "Code execution took long: %lu ms", time2-time1)
+```
