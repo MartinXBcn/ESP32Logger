@@ -13,7 +13,7 @@ Add other forms of output as acutally the serial-output, like e.g. via MQTT.
 ## Usage of the library
 
 Include library in the project and activate in general the logging-funcionality (i.e. include code for logging in the project):
-'''C++
+```C++
 #define ESP32DEBUGGING
 #include <ESP32Logger.h>
-'''
+```
