@@ -9,6 +9,7 @@ Logging is done to serial-output.
 The logging includes 
 * a timestamp (optional, can be time passed since start (in ms) or a specific time)
 * name of the function which contains the logging-function.
+
 Example code:
 ```C++
 char s[] = "Test";
@@ -17,9 +18,10 @@ uint32_t u = 123;
 DBGLOG(Error, "This is an error message; uint-value u: %u.", u)
 ```
 Example output:
+```
 00000004120 INF setup: This is an info-example; string-value s: test.
 00000004120 ERR setup: This is an error message; uint-value u: 123.
-
+```
 Logging depends on the choosen level of logging; the three levels are:
 * Error
 * Info
