@@ -40,7 +40,7 @@ Include library in the project and activate in general the logging-funcionality 
 Just comment out the #define ESP32DEBUGGING definition and no logging-code will be included to the project.
 It is not necessary to remove the logging-commands out of the project-code.
 
-## Initialize logging with DBGINI
+## DBGINI: Initialize logging with 
 
 Initialize the logging, usually done in the setup()-function, by one of the four alternatives:
 ```C++
@@ -50,7 +50,7 @@ DBGINI(&Serial, ESP32Timestamp::TimestampSinceStart)   // Timestamp in milli-sec
 DBGINI(&Serial, ESP32Timestamp::TimestampLocaltime)    // Specific time, has to be set in the beginning
 ```
 
-## Set level of logging with DBGLEV
+## DBGLEV: Set level of logging with 
 
 Change of level of logging (by default logging starts with level "Info"):
 ```C++
@@ -59,7 +59,7 @@ DBGLEV(Info)    // Error- and Info-messages will be logged.
 DBGLEV(Debug)   // All messages will be logged.
 ```
 
-## Start and end logging during program execution
+## DBGSTA and DBGSTP: Start and end logging during program execution
 
 After initialization with DBGINI logging has to be startet exsplicatly with
 ```C++
@@ -70,4 +70,11 @@ And can be stopped temporarly with
 DBGSTP
 ```
 And re-started again with DBGSTA.
+
+## DBGLOG: Log a message
+
+DBGLOG logs a message according to the defined level of logging (see also DBGLEV).
+> abc
+> xyz
+Test `<testing>` test-end.
 
