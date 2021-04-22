@@ -5,7 +5,7 @@ Logger for ESP32 for debugging C++-code
 ESP32Logger is a C++-library for ESP32/Arduino.
 The library contains a class ESP32Logger wich contains the functionality.
 The logging-functions are used via macro-functions; this makes it possible not only to deactivate logging but to compile the code even w/o any logging-code included, and without deleting your logging-comamands in the project.
-+
+
 Logging is done to serial-output.
 
 The logging includes 
@@ -40,6 +40,7 @@ Include library in the project and activate in general the logging-funcionality 
 #include <ESP32Logger.h>
 ```
 Just comment out the #define ESP32DEBUGGING definition and no logging-code will be included to the project.
+
 It is not necessary to remove the logging-commands out of the project-code.
 
 ## DBGINI: Initialize logging with 
@@ -76,7 +77,14 @@ And re-started again with DBGSTA.
 ## DBGLOG: Log a message
 
 DBGLOG logs a message according to the defined level of logging (see also DBGLEV).
-> abc
-> xyz
-Test `<testing>` test-end.
+
+The first parameter is the logging-level.
+
+The second parameter is the message to be logged itself.
+
+The following parametes are optional an can be further data to be logged referenced in the logging-message.
+The further paramaters can be referenced following the rules for the C++-standard library function [vsnprintf()](https://www.cplusplus.com/reference/cstdio/vsnprintf/).
+
+Examples:
+
 
