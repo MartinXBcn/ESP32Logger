@@ -86,5 +86,16 @@ The following parametes are optional an can be further data to be logged referen
 The further paramaters can be referenced following the rules for the C++-standard library function [vsnprintf()](https://www.cplusplus.com/reference/cstdio/vsnprintf/).
 
 Examples:
-
-
+```C++
+char s[] = "Test";
+uint32_t u = 123;
+DBGLOG(Info, "This logs a simple info-message.")
+DBGLOG(Debug, "This is an advanced debug-message with text %s and number %u.", s, u)
+DBGLOG(Error, "This is an error message; error-code: %u.", u)
+```
+Example output:
+```
+00000004120 INF setup: This logs a simple info-message.
+00000004120 DBG functionA: This is an advanced debug-message with text Test and number 123.
+00000004130 ERR functionB: This is an error message; error-code: 123.
+```
