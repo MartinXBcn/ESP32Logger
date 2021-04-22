@@ -28,9 +28,14 @@ Logging depends on the choosen level of logging; the three levels are:
 * Error
 * Info
 * Debug
+With DBGCHK a conditional logging is possible, i.e. the logging can depend on a certain condition which will be checked during run time of the program. In the following example the message will only be logged if the returned value in err is not 0:
+```C++
+uint32_t err = functionA();
+DBGCHK(Error, err==0, "functionA returned error-code: %u.", u)
+```
 
 ## Outlook
-Add other forms of output as acutally the serial-output, like e.g. via MQTT.
+Add other types of output as acutally the serial-output, like e.g. via MQTT.
 
 ## Include the library in the project
 
@@ -47,6 +52,7 @@ It is not necessary to remove the logging-commands out of the project-code.
 
 Initialize the logging, usually done in the setup()-function, by one of the four alternatives:
 ```C++
+Serial.begin(115200);
 DBGINI(&Serial)                                        // By default equal to "TimestampSinceStart"
 DBGINI(&Serial, ESP32Timestamp::TimestampNone)         // w/o timestamp
 DBGINI(&Serial, ESP32Timestamp::TimestampSinceStart)   // Timestamp in milli-seconds since start of program
