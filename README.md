@@ -44,6 +44,30 @@ It is not necessary to remove the logging-commands out of the project-code.
 
 Initialize the logging, usually done in the setup()-function, by one of the four alternatives:
 ```C++
-DBGINI(&Serial, ESP32Timestamp::TimestampSinceStart)
+DBGINI(&Serial)                                        // By default equal to "TimestampSinceStart"
+DBGINI(&Serial, ESP32Timestamp::TimestampNone)         // w/o timestamp
+DBGINI(&Serial, ESP32Timestamp::TimestampSinceStart)   // Timestamp in milli-seconds since start of program
+DBGINI(&Serial, ESP32Timestamp::TimestampLocaltime)    // Specific time, has to be set in the beginning
 ```
+
+## Set level of logging with DBGLEV
+
+Change of level of logging (by default logging starts with level "Info"):
+```C++
+DBGLEV(Error)   // Only Error-messages will be logged.
+DBGLEV(Info)    // Error- and Info-messages will be logged.
+DBGLEV(Debug)   // All messages will be logged.
+```
+
+## Start and end logging during program execution
+
+After initialization with DBGINI logging has to be startet exsplicatly with
+```C++
+DBGSTA
+```
+And can be stopped temporarly with
+```C++
+DBGSTP
+```
+And re-started again with DBGSTA.
 
