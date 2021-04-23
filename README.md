@@ -19,12 +19,12 @@ DBGLOG(Info, "This is an info-example; string-value s: %s.", s)
 uint32_t u = 123;
 DBGLOG(Error, "This is an error message; uint-value u: %u.", u)
 ```
-Example output with timestamp of type ```TimestampSinceStart```:
+Example output with timestamp of type ```ESP32Timestamp::TimestampSinceStart```:
 ```
 00000004120 INF setup: This is an info-example; string-value s: test.
 00000004120 ERR setup: This is an error message; uint-value u: 123.
 ```
-Example output with timestamp of type "TimestampLocaltime":
+Example output with timestamp of type ```ESP32Timestamp::TimestampLocaltime```:
 ```
 23.04.2021 09:39:57 INF setup: This is an info-example; string-value s: test.
 23.04.2021 09:39:57 ERR setup: This is an error message; uint-value u: 123.
@@ -33,7 +33,7 @@ Logging depends on the choosen level of logging; the three levels are:
 * Error
 * Info
 * Debug
-With DBGCHK a conditional logging is possible, i.e. the logging can depend on a certain condition which will be checked during run time of the program. In the following example the message will only be logged if the returned value in err is not 0:
+With ```DBGCHK``` a conditional logging is possible, i.e. the logging can depend on a certain condition which will be checked during run time of the program. In the following example the message will only be logged if the returned value in ```err``` is not 0:
 ```C++
 uint32_t err = functionA();
 DBGCHK(Error, err==0, "functionA returned error-code: %u.", u)
@@ -50,7 +50,7 @@ Include library in the project and activate in general the logging-funcionality 
 #define ESP32DEBUGGING
 #include <ESP32Logger.h>
 ```
-Just comment out the #define ESP32DEBUGGING definition and no logging-code will be included to the project.
+Just comment out the ```#define ESP32DEBUGGING``` definition and no logging-code will be included to the project.
 
 It is not necessary to remove the logging-commands out of the project-code.
 
@@ -67,7 +67,7 @@ DBGINI(&Serial, ESP32Timestamp::TimestampLocaltime)    // Specific time, has to 
 
 ## DBGLEV: Set level of logging with 
 
-Change of level of logging (by default logging starts with level "Info"):
+Change of level of logging (by default logging starts with level ```Info```):
 ```C++
 DBGLEV(Error)   // Only Error-messages will be logged.
 DBGLEV(Info)    // Error- and Info-messages will be logged.
@@ -76,7 +76,7 @@ DBGLEV(Debug)   // All messages will be logged.
 
 ## DBGSTA and DBGSTP: Start and end logging during program execution
 
-After initialization with DBGINI logging has to be startet exsplicatly with
+After initialization with ```DBGINI``` logging has to be startet exsplicatly with
 ```C++
 DBGSTA
 ```
@@ -84,20 +84,20 @@ And can be stopped temporarly with
 ```C++
 DBGSTP
 ```
-And re-started again with DBGSTA.
+And re-started again with ```DBGSTA```.
 
 ## DBGLOG: Log a message
 
-DBGLOG logs a message according to the defined level of logging (see also DBGLEV).
+```DBGLOG``` logs a message according to the defined level of logging (see also ```DBGLEV```).
 
 The first parameter is the logging-level.
 
 The second parameter is the message to be logged itself.
 
-The following parametes are optional an can be further data to be logged referenced in the logging-message.
+The following parametes are optional and can be further data to be logged referenced in the logging-message.
 The further paramaters can be referenced following the rules for the C++-standard library function [vsnprintf()](https://www.cplusplus.com/reference/cstdio/vsnprintf/).
 
-Examples:
+Example code:
 ```C++
 char s[] = "Test";
 uint32_t u = 123;
@@ -114,7 +114,7 @@ Example output:
 
 ## DBGCHK: Conditional logging
 
-With DBGCHK it is possible to trigger during run time of the program depending on a condition the logging of the message.
+With ```DBGCHK``` it is possible to trigger during run time of the program depending on a condition the logging of the message.
 The message will only be logged if the condition is *not* fulfilled.
 
 This can be usefull for example in case of
@@ -135,7 +135,7 @@ char* functionZ(uint32_t input) {
 
 ## DBGCOD: Include temporary debugging-code
 
-With DBGCOD temporary program code can be included only for the purpose of debugging. Usefull in combination with DBGCHK to check more complex situations. The code defined with DBGCOD (as all the other logging-code) will only be included in case ESP32DEBUGGING is defined.
+With ```DBGCOD``` temporary program code can be included for the only purpose of debugging. Usefull in combination with ```DBGCHK``` to check more complex situations. The code defined with ```DBGCOD``` (as all the other logging-code) will only be included in case ```ESP32DEBUGGING``` is defined.
 Example code:
 ```C++
 DBGCOD(unsigned long time1;)
