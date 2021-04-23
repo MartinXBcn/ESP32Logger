@@ -33,6 +33,7 @@ With DBGCHK a conditional logging is possible, i.e. the logging can depend on a 
 uint32_t err = functionA();
 DBGCHK(Error, err==0, "functionA returned error-code: %u.", u)
 ```
+Library ESP32Logger is tested with ESP32.
 
 ## Outlook
 Add other types of output as acutally the serial-output, like e.g. via MQTT.
