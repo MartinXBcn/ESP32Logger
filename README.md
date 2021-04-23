@@ -19,10 +19,15 @@ DBGLOG(Info, "This is an info-example; string-value s: %s.", s)
 uint32_t u = 123;
 DBGLOG(Error, "This is an error message; uint-value u: %u.", u)
 ```
-Example output:
+Example output with timestamp of type "TimestampSinceStart":
 ```
 00000004120 INF setup: This is an info-example; string-value s: test.
 00000004120 ERR setup: This is an error message; uint-value u: 123.
+```
+Example output with timestamp of type "TimestampLocaltime":
+```
+23.04.2021 09:39:57 INF setup: This is an info-example; string-value s: test.
+23.04.2021 09:39:57 ERR setup: This is an error message; uint-value u: 123.
 ```
 Logging depends on the choosen level of logging; the three levels are:
 * Error
