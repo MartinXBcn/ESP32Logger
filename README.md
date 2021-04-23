@@ -19,7 +19,7 @@ DBGLOG(Info, "This is an info-example; string-value s: %s.", s)
 uint32_t u = 123;
 DBGLOG(Error, "This is an error message; uint-value u: %u.", u)
 ```
-Example output with timestamp of type "TimestampSinceStart":
+Example output with timestamp of type ```TimestampSinceStart```:
 ```
 00000004120 INF setup: This is an info-example; string-value s: test.
 00000004120 ERR setup: This is an error message; uint-value u: 123.
