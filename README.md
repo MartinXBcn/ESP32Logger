@@ -124,12 +124,12 @@ This can be usefull for example in case of
 Example code:
 ```C++
 char* functionZ(uint32_t input) {
-  char* cptr = nullptr;
-  // functionZ can only handle input > 0
-  DBGCHK(Error, input > 0, "functionZ cannot handle input < 1; input: %u.", input)
-  // Do something with input and return cptr; ensure that cptr is not null.
-  DBGCHK(Error, cptr != nullptr, "Invalid null-pointer to be returned")
-  return cptr;
+    char* cptr = nullptr;
+    // functionZ can only handle input > 0
+    DBGCHK(Error, input > 0, "functionZ cannot handle input < 1; input: %u.", input)
+    // Do something with input and return cptr; ensure that cptr is not null.
+    DBGCHK(Error, cptr != nullptr, "Invalid null-pointer to be returned")
+    return cptr;
 }
 ```
 
