@@ -2,7 +2,7 @@
 // ESP32Logger.cpp
 // Logger for ESP32 for debugging C++-code
 // https://github.com/MartinXBcn/ESP32Logger
-//
+// 
 
 #include "ESP32Logger.h"
 #include <stdarg.h>
