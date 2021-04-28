@@ -1,9 +1,8 @@
-/*
- Name:		ESP32Logger.cpp
- Created:	4/20/2021 11:19:33 PM
- Author:	Martin
- Editor:	http://www.visualmicro.com
-*/
+// 
+// ESP32Logger.cpp
+// Logger for ESP32 for debugging C++-code
+// https://github.com/MartinXBcn/ESP32Logger
+//
 
 #include "ESP32Logger.h"
 #include <stdarg.h>
