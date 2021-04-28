@@ -1,5 +1,7 @@
 // 
 // ESP32Logger.h
+// Logger for ESP32 for debugging C++-code
+// https://github.com/MartinXBcn/ESP32Logger
 //
 
 #ifndef _ESP32Logger_h
