@@ -1,9 +1,6 @@
-/*
- Name:		ESP32Logger.h
- Created:	4/20/2021 11:19:33 PM
- Author:	Martin
- Editor:	http://www.visualmicro.com
-*/
+// 
+// ESP32Logger.h
+//
 
 #ifndef _ESP32Logger_h
 #define _ESP32Logger_h
