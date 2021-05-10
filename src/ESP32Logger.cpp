@@ -4,6 +4,10 @@
 // https://github.com/MartinXBcn/ESP32Logger
 // 
 
+
+ESP32Logger Log;
+
+
 #include "ESP32Logger.h"
 #include <stdarg.h>
 
