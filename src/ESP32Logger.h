@@ -43,10 +43,7 @@ private:
 
 #ifdef ESP32DEBUGGING
 
-#ifndef _ESP32Logger_2
-#define _ESP32Logger_2
-ESP32Logger Log;
-#endif // #ifndef _ESP32Logger_2
+extern ESP32Logger Log;
 
 // For "##__VA_ARGS__" see https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html
 #define DBGINI(output, ...) Log.init(output, ##__VA_ARGS__);
