@@ -6,12 +6,10 @@
 // 
 
 
-ESP32Logger Log;
-
-
 #include "ESP32Logger.h"
 #include <stdarg.h>
 
+ESP32Logger Log;
 
 void ESP32Logger::init(Print* output, ESP32Timestamp useTimestamp) {
 	_output = output;
